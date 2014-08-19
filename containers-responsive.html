@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>        
+
+    </head>
+
+<style type="text/css">
+/* this is the box-sizing trick , and it's applied to all styles ( * ). This has been a trick that has been refined by the web engineers that came before us. thanks to paul irish, i believe, more can be read here, thanks to chris coyier: http://css-tricks.com/box-sizing/;  make sure you read about it and play around with it how it affects widths and sizes of elements */
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }    
+    .name-of-page {
+      background: url('img/small_steps/small_steps.png') repeat;
+    }
+  .container {
+    max-width: 1100px;
+    min-width: 300px;
+    width: 95%;
+    margin: 0 auto;
+  }
+    header.container, 
+    section.container, 
+    footer.container {
+      background: white;      
+      border: solid 1px #e5e5e5;
+      padding: 15px 30px;        
+      margin-top: 30px;    
+      margin-bottom: 30px;
+  }  
+</style>  
+
+<body class="name-of-page">
+
+<div class="container">
+    <a href="index.html">HOME</a><br />
+    <a href="containers.html">&larr; Back to Containers Article</a>
+</div>
+
+  <header class="container">
+
+    <h1>Containers: Example 2 (Responsive Containers)</h1>
+    <nav>
+        <ul>
+          <li><a href="containers-non-responsive.html">Example 1: Non Responsive Container</a></li>
+          <li><a href="containers-responsive.html">Example 2: Responsive Containers</a></li> 
+          <li><a href="containers-responsive-backgrounds.html">Example 3: Responsive Containers  + Multiple Backgrounds</a></li>         
+        </ul>
+    </nav>
+  </header>
+
+  <section class="container">
+    <article>
+          <h2>To Test the Responsiveness of this page, Resize the window and notice how the content always stays centered inside the window, no matter how big the window is.</h2>
+          <p> In Chrome, make sure to Right Click -> View Page Source to see this page the code snippet in Example 2.</p>  
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>      
+    </article>    
+  </section>
+
+  <footer class="container">
+    <small>Some small copy and maybe a &copy; 2014 Name of Business</small>
+  </footer>
+
+</body>
+
+
+</html>

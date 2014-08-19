@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>    
+    <body id="containers">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <header class="container">
+            <h1>Web Dev Fundamentals</h1>            
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="containers.html">Containers</a></li>
+                    <li><a href="coming-soon.html">Display</a></li>
+                    <li><a href="coming-soon.html">Float</a></li>
+                    <li><a href="coming-soon.html">Position</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <section class="container">
+
+            <article>                
+                <h1>Containers</h1>
+                <p>Containers are one of the most important concepts to grasp in frontend web development. The web, and it's design + framework is essentially made up of rows and columns of information. The web has truly offered some bright alternative ways of looking at this not-so-riveting fact in recent years, with some super slick examples of web dev (thinking of sources like codepen.io, jsfiddle.net, jsbin.com, etc.), such examples that test the rules of the DOM. But, to test the rules effectively you must know the rules, right? Thus, knowing how information inherently displays in the DOM will help you write better HTML, CSS, + Javascript, and build better user experiences from it. </p>
+                <p>However, back in the day, there were unavoidable limitations to displaying data on a web page, that is before the div tag's were established - so basically the entire web was made up of tables. And we all know what tabular data looks like.</p>
+                <p>Since then, the web has vastly improved with powerful CSS properties and refined HTML elements to allow for greater control over how website data is visualized/displayed, and how it's marked up in the document outline.</p>
+
+                <p>Take any website and you'll find rows and columns. Like... <a href="http://www.vogue.com/" target="_blank">Vogue</a>, for an example:</p>              
+
+                <img src="img/vogue-containers-rows-and-columns.png" alt="Vogue Containers: Rows and Columns" />
+                <h4>What's the Point? Why does it matter?</h4>
+                <p>As soon as you can start to see the web for what it is - a bunch of rows, and then columns inside those rows, to define more modules of data, which hold more rows and columns inside those, you'll <i>quickly</i> be able to build "modules" of data that can be reusable across multiple pages. It also particularly matters when you want to "collapse" the data in a nice manner, so that certain data can be displayed differently for smaller and larger devices.</p>
+                <hr>
+                <p>A common practice <i>before</i> responsive web design was to give the entire page a content container, say div id="container" and then give that container a fixed width, like width: 1024px; margin: 0 auto, so that the page is always 1024 pixels and the site is optimized for <i>most</i> computer screens (at the time, keeping in mind). An example of this practice is as follows:</p>
+
+<h3>Example 1:</h3>
+<xmp>
+<style type="text/css">
+
+  #container {
+    width: 1024px;
+    margin: 0 auto;
+  }
+
+</style>
+
+<body>
+  <div id="container">
+
+    <div id="header">
+      <h1>Name of Site</h1>
+      <div id="nav">
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>        
+        </ul>
+      </div>
+    </div>
+
+    <div id="section">
+        <!-- main section content-->        
+    </div>
+
+    <div id="footer">
+      <!-- main footer content-->    
+    </div>
+
+  </div>
+</body>
+
+</xmp>
+
+<a href="containers-non-responsive.html">View Live Example of Code above (Example 1: Non Responsive Container)</a>
+<p>This was generally considered a fine practice, as people were viewing web pages on a standard computer, with a standard width they could pretty much hit all the horses with  at 1024. In fact, setting hard widths on pretty much everything was considered just fine.</p>
+<p><strong>But now</strong>, however, we have a lot of gadgets that connect to the web, including: tablets, iPhones, androids,  widths of <i>all</i> kinds, ranging anywhere from 200px all the way to 2200 pixels and more. Lots of widths. Think of it literally to comparing various canvas widths (like the one you paint on, all the options)..</p>
+<p>So, therefore, locking yourself into a fixed pixel ratio width of <b>any</b> element size is really not practiced much anymore, IMHO.</p>
+<div class="additional">
+<h3>Additional (but important) info about Example 1:</h3>
+<h5>The disadvantages of using lots of ID's, and why you should use more classes:</h5>
+<p>IDs are costly. In fact, if an ID and a class went back-to-back in a ball game, the ID scores 40 points for one shot, and the class scores 10 points for the same shot. What this basically means is that IDs will outweigh the strength of a class 4:1 (or close to), if they were to ever go against eachother, in trying to target the same selector. IDs can be however very powerful and useful to use, to isolate certain scopes of style and behavior, where necessary.</p>
+  <p>Why you should use classes far more often than you may think Is that classes are more negotiable over time. In case anything needs to change down the road, it's harder to back track from IDs, and more often than not you'd never want to change an ID after you've established it. So when you use an ID, ask yourself, <br />
+    <blockquote>"am I targeting this element for any type of javascript and/or interactive advanced css3 goodness?"</blockquote> If yes, sure make it an ID, but if not... Make it a class. Just Sayin' - You'll be glad you did, later. </p>
+    <p>The other reason is that elements of HTML can only have 1 ID. Just 1. On the other hand, elements can have lots of classes. Not tons - but you get the picture? When you assign an element an ID, it better be for super good reasons, like - this thing is so unique you are gonna target it with event-bindings in javascript. That's my rule of thumb.</p> 
+<h5>Never use a div id="container"</h5>
+<p>More often than not, you'll need to work with <b>multiple</b> backgrounds for a web page that need to <i>span 100% of the width of any row of content</i>, for any browser width. And by only using one container, with a fixed width set in pixels, you limit yourself to one background for the <b>parent</b> of that "contained" area on a page. And if you're not following the DRY (Don't Repeat Yourself) method by repeating yourself in styles, then it's likely that whatever it is you're styling may be better suited as a class.</p> 
+</div>
+
+               <hr>
+<h2>What to look forward to:</h2>
+<p>The practice explained in <i>Example 1 has been replaced by the notion of treating each row of content as its own container, instead of the page as a container</i>, and thus allowing the width of the rows to be relative to the width of the device looking at it. What does this mean? It's often regarded as "fluid", and I consider it a mixture of using percentages and understanding inherent widths of elements. You and you can even set a max-width and min-width and be compatibile with all modern browers + IE >= IE8. This example below also uses HTML5 markup, which uses up-to-date DOM elements that have essentially been founded over time, over common patterns in building html pages, etc.</p>
+
+<h3>Example 2:</h3>
+<xmp>
+<style type="text/css">
+  .name-of-page {
+    background: url('img/small_steps/small_steps.png') repeat;
+  }
+  .container {
+    max-width: 1100px;
+    min-width: 300px;
+    width: 95%;
+    margin: 0 auto;
+  }  
+</style>  
+
+<body class="name-of-page">
+
+  <header class="container">
+    <h1>Name of Site</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>        
+      </ul>
+    </nav>
+  </header>
+
+  <section class="container">
+    <article>
+      <!-- main section content-->
+    </article>    
+  </section>
+
+  <footer class="container">
+    <!-- main footer content-->    
+  </footer>
+
+</body>
+</xmp>
+
+<a href="containers-responsive.html">View Live Example of Code above (Example 2: Responsive Container)</a> 
+<p>An important thing to mention is you MUST have the viewport turned on in the head:</p>
+<xmp>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</xmp>
+<p>Thankfully, boilerplates like HTML5 provide that for you.</p>
+  <p class="additional"><strong>A little off topic, but note the class on the body: </strong>If you give the body a class - this is a good place to jump from on any given page, if you're working with any type of unique styles or themes on a page. Also to keep in mind, if you're using a Content Managing System like WordPress - any CMS of this nature, it will automatically give the body a class - so even for projects not using a database, it is a good way to establish unique styles on any given page.</p>
+  <hr>
+  <h3>Benefits of treating each row of content as a container instead of only having one container</h3>
+  <p>One of the biggest benefits is this process allows for different backgrounds for different rows of content, while also giving the content inside a container. It would require adding another container, a div is a great use case of this as a div has no extraordinary meaning on the document outline of a web page. We can wrap our content in a div and give it a container, while allowing the parent element to hold a background.</p>
+
+  <p>An example of this is as follows:</p>
+<h3>Example 3:</h3>
+<xmp>
+
+<body class="name-of-page">
+
+  <header>
+    <div class="container">      
+      <h1>Name of Site</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>        
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <article>
+        <!-- main section content-->
+      </article> 
+    </div>   
+  </section>
+
+  <footer>
+    <div class="container">
+    <!-- main footer content-->   
+    </div> 
+  </footer>
+
+</body>
+
+</xmp>
+<p>And the corresponding CSS for Example 3 could look something like this:</p>
+<xmp>
+  <style type="text/css">
+    .container {
+    max-width: 1100px;
+    min-width: 300px;
+    width: 95%;
+    margin: 0 auto;
+  }
+  header {
+    background: url('img/light_wool/light_wool.png') repeat;
+  }
+  section {        
+    background: url('img/congruent_pentagon/congruent_pentagon.png') repeat;
+  }
+  footer {    
+    background: url('img/small_steps/small_steps.png') repeat;
+  }
+    header .container, 
+    section .container, 
+    footer .container {
+      background: white;      
+      border: solid 1px #e5e5e5;
+      padding: 15px 30px; 
+      margin-bottom: 30px;
+  }  
+  </style>
+</xmp>
+<a href="containers-responsive-backgrounds.html">View Live Example of Code above (Example 3: Responsive Containers with Backgrounds)</a> 
+<h4>So, to sum it all up. </h4>
+<p>Responsive web design is awesome. The * {box-sizing} trick is also awesome (view page source on Example 3 to see what I mean). Multiple backgrounds that span 100% the width are pretty great. Using IDs is bad, usually, unless you can really really justify it. Web pages are made up of a bunch of rows and columns. And setting a fixed pixel size to a "main" container for a page is no longer adaptable enough for the variety of devices that can show webpages. Ttherefore, switching to a <i>percentage</i> width for a class called "container" is good. And using min- and max- widths can also be beneficial.</p>
+<h4>List of Examples:</h4>
+        <ul>
+          <li><a href="containers-non-responsive.html">Example 1: Non Responsive Container</a></li>
+          <li><a href="containers-responsive.html">Example 2: Responsive Containers</a></li> 
+          <li><a href="containers-responsive-backgrounds.html">Example 3: Responsive Containers  + Multiple Backgrounds</a></li>         
+        </ul>
+
+        </section>
+
+        <footer class="container">
+            <small>This content can be used by any enterprise, institution, or personal project.</small>
+            <small>(Published August 2014)</small>
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>

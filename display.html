@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>    
+    <body id="containers">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <header class="container">
+            <h1>Web Dev Fundamentals</h1>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="containers.html">Containers</a></li>
+                    <li><a class="active" href="display.html">Display</a></li>
+                    <li><a href="float.html">Float</a></li>
+                    <li><a href="position.html">Position</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <section class="container">
+
+            <article>
+                <h2>Containers</h2>
+                <p>Containers are one of the most important concepts to grasp in frontend web development. The web, and it's design + framework is essentially made up of rows and columns of information. Modules, if you will. Back in the day, however, there were certain limitations to displaying the data, that is before the div tag's were established - so basically the entire web was made up of tables. And we all know what tabular data looks like.</p>
+                <p>Since then, the web has vastly improved with powerful CSS properties and refined HTML elements to allow for greater control over how website data is visualized/displayed, and how it's marked up in the document outline.</p>
+
+                <p>Take any website and you'll find rows and columns. Like... Vogue, for an example:</p>              
+
+                <img src="img/vogue-containers-rows-and-columns.png" alt="Vogue Containers: Rows and Columns" />
+                <h4>What's the Point? Why does it matter?</h4>
+                <p>As soon as you can understand that website data is made up of rows, and then columns inside those rows to define more modules of data, you're good. The reason it matters is that eventually you will want to know how to collapse the data, so that it's more accessible to smaller devices.</p>
+              
+                <p>A common practice before responsive web design was to give the entire page a content container, say div id="container" and then give that container a fixed width, like width: 1024px; margin: 0 auto, so that it's top and bottom margin is 0 and it's margin left and margin right fit in the center of the page, always at a width of 1024 pixels. An example of this is as follows:</p>
+
+<h3>Example 1:</h3>
+<xmp>
+<style type="text/css">
+
+  #container {
+    width: 1024px;
+    margin: 0 auto;
+  }
+
+</style>
+
+<body>
+  <div id="container">
+
+    <div id="header">
+      <h1>Name of Site</h1>
+      <div id="nav">
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>        
+        </ul>
+      </div id="nav">
+    </div>
+
+    <div id="section">
+        <!-- main content-->        
+    </div>
+
+    <div id="footer">
+      <!-- main footer-->    
+    </div>
+
+  </div>
+</body>
+
+</xmp>
+<p>This was generally not considered bad practice among many, as people were viewing web pages on a standard computer, with a standard width they could pretty much hit all the horses with 1024. At the time.</p>
+<p>Now, however, we gotta deal with tablets, iPhones, androids, widths of all kinds - mega screens and humongo monitors, etc. Lots of widths. So therefore locking yourself into a set pixel ratio is not safe practice if you want to be a responsive web developer, compatible with lots of different viewports accessing any given URL.</p>
+<h2>Another Look at Example 1:</h2>
+<h3>The Disadvantages of using IDs</h3>
+<p>IDs are costly. Classes are far more negotiable over time, and in general - it's bad to use a lot of IDs. In case anything needs to change down the road, it's harder to back track from IDs. So when you use an ID, ask yourself, am I targeting this element for any type of javascript/interactive goodness? If not, make it a class. You'll be glad you did, later.</p> 
+<h3>The Disadvantages of a div id="container"</h3>
+<p>More often than not, you'll need to work with multiple backgrounds for a web page that need to span 100% of the width of any row of content, for any browser width. And by only using one container, with a fixed width set in pixels, you limit yourself to one background for the <b>parent</b> of that "contained" area.</p> 
+
+<a href="containers-non-responsive.html">View Live Example of Code above (Non Responsive Container)</a>               
+
+                <p>This practice has been replaced by treating each row of content its own container, and allowing the width to be relative to the width of the device looking at it. This example also uses HTML5 markup, which replaces major web concepts that have been founded over time. An example of this would look like this:</p>
+
+
+<xmp>
+<style type="text/css">
+  .container {
+    max-width: 1024px;
+    max-width: 96%;
+    margin: 0 auto;
+  }  
+</style>  
+
+<body id="name-of-page">
+
+  <header class="container">
+    <h1>Name of Site</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>        
+      </ul>
+    </nav>
+  </header>
+
+  <section class="container">
+    <article>
+      <!-- main content-->
+    </article>    
+  </section>
+
+  <footer class="container">
+    <!-- main footer-->    
+  </footer>
+
+</body>
+</xmp>
+
+  <p>Notice the very limited use case of ID's here. If you give the body an ID - this is a good place to jump from on any given page, if you're working with any type of unique styles on a page. Also to keep in mind, if you're using a Content Managing System like WordPress - any CMS of this nature will give the body an ID - so even for projects not using a database, it is a good way to establish unique styles on any given page.</p>
+  <h3>Benefits of treating each row of content as a container instead of only having one container</h3>
+  <p>One of the biggest benefits is this process allows for different backgrounds for different rows of content, while also giving the content inside a container. It would require adding another container, a div is a great use case of this as a div has no extraordinary meaning on the document outline of a web page. We can wrap our content in a div and give it a container, while allowing the parent element to hold a background.</p>
+
+  <p>An example of this is as follows:</p>
+
+<xmp>
+
+<body id="name-of-page">
+
+  <header>
+    <div class="container">      
+      <h1>Name of Site</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>        
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <article>
+        <!-- main content-->
+      </article> 
+    </div>   
+  </section>
+
+  <footer>
+    <div class="container">
+    <!-- main footer-->   
+    </div> 
+  </footer>
+
+</body>
+
+</xmp>
+
+            </article>
+
+            <aside>
+                <p></p>
+            </aside>
+
+        </section>
+
+        <footer class="container">
+            <small>This content can be used by any enterprise, institution, or personal project.</small>
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
